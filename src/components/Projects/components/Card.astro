@@ -1,13 +1,23 @@
 ---
+interface Props {
+  title: string;
+  image: string;
+  tags: string[];
+}
+
 const { title, image, tags } = Astro.props;
 ---
 
 <li class="img-container">
-  <h3>{title}</h3>
+  <header class="img-container-content">
+    <img src={image} alt="" />
+  </header>
 
-  <img src={image} alt="" />
 
-  <ul>
-    {tags && tags.map((tag) => <li>{tag}</li>)}
-  </ul>
+  <footer>
+    <h3>{title}</h3>
+    <ul>
+      {tags && tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+  </footer>
 </li>

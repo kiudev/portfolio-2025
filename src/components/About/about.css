@@ -3,9 +3,8 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  min-height: 50vh;
   gap: 1rem;
-  /* border: 2px solid; */
+  padding-top: 100px;
 }
 
 .profile-text-container {
@@ -20,11 +19,37 @@
 
 .about-section {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  width: 40rem;
   gap: 1rem;
+  width: 100%;
+}
+
+.content {
+  width: 50%;
+  color: var(--primary-color-100);
+
+}
+
+.icons {
+  height: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.react-icon {
+  width: 100px;
+}
+
+.html-icon {
+  width: 100px;
+  rotate: 45deg;
+}
+
+.css-icon {
+  width: 100px;
+  rotate: -45deg
 }
 
 .profile-logo {
@@ -70,10 +95,11 @@
   font-size: 48px;
   min-height: 60px;
   position: relative;
+  filter: drop-shadow(0px 0px 1px var(--primary-color-500));
 }
 
 .position {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .text {
