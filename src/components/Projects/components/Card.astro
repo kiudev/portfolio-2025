@@ -1,0 +1,13 @@
+---
+const { title, image, tags } = Astro.props;
+---
+
+<li class="img-container">
+  <h3>{title}</h3>
+
+  <img src={image} alt="" />
+
+  <ul>
+    {tags && tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+</li>

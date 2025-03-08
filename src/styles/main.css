@@ -1,0 +1,150 @@
+:root {
+  --font-family: "Geist", sans-serif;
+  --paragraph-size: 16px;
+
+  --primary-color-100: #e6f4fa;
+  --primary-color-200: #cde9f5;
+  --primary-color-300: #b4deef;
+  --primary-color-400: #9bd3ea;
+  --primary-color-500: #82c8e5;
+  --primary-color-600: #68a0b7;
+  --primary-color-700: #4e7889;
+  --primary-color-800: #34505c;
+  --primary-color-900: #1a282e;
+
+  --neutral-color-100: #ffffee;
+  --neutral-color-200: #e0e0e0;
+  --neutral-color-800: rgb(255, 255, 238, 0.1);
+  --neutral-color-900: #10100e;
+}
+
+/* #background-container {
+  position: absolute;
+  inset: 0;
+  background-color: var(--neutral-color-100);
+  opacity: 0.1;
+  filter: blur(50px);
+} */
+
+.clouds {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+ .cloud1 {
+  transform: translateY(50px);
+}
+
+.cloud2 {
+  transform: translateY(200px);
+}
+
+.cloud3 {
+  transform: translateY(150px);
+}
+
+#window-container {
+  position: relative;
+  width: 70vw;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-inline: 2px solid rgb(250, 249, 246, 0.2);
+    box-sizing: border-box;
+    animation: draw-border 4s linear forwards;
+  }
+}
+
+#scrollable-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeInUp 0.5s ease-in-out;
+  margin: 0 auto;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 100%;
+  z-index: 1;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  padding: 0 200px;
+}
+
+/* #profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+} */
+
+
+#footer-container {
+  color: var(--light-color);
+}
+
+.important {
+  color: var(--neutral-color-100);
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Color de fondo de la pista */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(
+    255,
+    255,
+    238,
+    0.1
+  ); /* Color del thumb (barra deslizante) */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del thumb al pasar el mouse */
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--neutral-color-200);
+    color: var(--neutral-color-900);
+  }
+}
+
+@media (max-width: 1024px) {
+  #window-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  #main-container {
+    padding: 0 20px;
+  }
+}

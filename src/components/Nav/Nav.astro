@@ -1,0 +1,22 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import "./nav.css";
+---
+
+<nav class="nav">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <!-- <img class="profile-logo" src="/Daniel.jpg" alt="Profile Logo" /> -->
+  <a href="#projects">Projects</a>
+  <a href="/contact">Contact</a>
+  <!-- <Sun />
+    <Moon /> -->
+  <a class="lang" href={getRelativeLocaleUrl("es")}>es</a>
+  <a class="lang" href={getRelativeLocaleUrl("en")}>en</a>
+</nav>
+
+<script>
+  import { animate, circInOut } from "motion";
+
+  animate('.nav', { y: [-100, 0], filter: ['blur(5px)', 'blur(0px)'] }, {ease: circInOut, duration: 1 });
+</script>

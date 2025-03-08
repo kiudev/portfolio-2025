@@ -1,0 +1,32 @@
+---
+import "./projects.css";
+import Card from "./components/Card.astro";
+---
+
+<div class="projects-container">
+  <ul class="project-group">
+    <Card
+      title="WebPix"
+      tags={["React", "TypeScript", "Tailwind"]}
+    />
+
+    <Card
+      title="WebPix"
+      image="/screely-1738234351139.png"
+      tags={["React", "TypeScript", "Tailwind"]}
+    />
+  </ul>
+</div>
+
+<script type="module">
+  import { scroll, animate } from "motion";
+
+  const items = document.querySelectorAll(".img-container");
+
+  scroll(
+    animate(".project-group", {
+      transform: ["none", `translateX(-${items.length - 1}00vw)`],
+    }),
+    { target: document.querySelector(".projects-container") },
+  );
+</script>
