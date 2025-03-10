@@ -1,57 +1,32 @@
 ---
 import "./about.css";
-import GithubIcon from "./icons/Github.astro";
-import LinkedinIcon from "./icons/Linkedin.astro";
-
+import React from "../../components/About/icons/React.astro";
+import HTML from "../../components/About/icons/HTML.astro";
+import CSS from "../../components/About/icons/CSS.astro";
 ---
 
-<div id="profile-container">
-  <!-- <img src="/Daniel.jpg" alt="Profile Picture" class="profile-logo" /> -->
-    <div class="profile-text-container">
-      <h1 class="heading-1"></h1>
-
-      <h2 class="position">Frontend Developer</h2>
-    </div>
-    <hr />
-
-    <p class="text">
-      Especializado en crear interfaces web, con un enfoque en la creatividad
-      visual y la experiencia de usuario.
+<section id="about-section">
+  <div class="content">
+    <p></p>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, culpa
+      corporis, officiis, cupiditate hic unde quasi laboriosam autem incidunt ut
+      aliquam ad suscipit delectus obcaecati debitis beatae expedita similique
+      consequatur?
     </p>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, culpa
+      corporis, officiis, cupiditate hic unde quasi laboriosam autem incidunt ut
+      aliquam ad suscipit delectus obcaecati debitis beatae expedita similique
+      consequatur?
+    </p>
+  </div>
 
-    <div id="social-container">
-      <a href="#">
-        <GithubIcon />
-      </a>
-      <a href="#">
-        <LinkedinIcon />
-      </a>
-    </div>
-</div>
+  <div class="icons">
+    <React />
+    <HTML />
+    <CSS />
+  </div>
+</section>
 
-<script>
-  import { animate } from "motion";
 
-  const headingElement = document.querySelector(".heading-1");
-
-  const headingText = "Daniel Saavedra";
-  const splitedText = headingText.split("");
-
-  splitedText?.forEach((char) => {
-    const span = document.createElement("span");
-    span.textContent = char;
-    headingElement?.appendChild(span);
-  });
-
-  const spans = document.querySelectorAll("span");
-
-  spans.forEach((el, i) => {
-    animate(
-      el,
-      { opacity: [0, 1], filter: ["blur(10px)", "blur(0px)"] },
-      { duration: 1, delay: i * 0.1 },
-    );
-  });
-
-  animate(".shape", { rotate: 360 }, { repeat: Infinity, duration: 30 });
-</script>

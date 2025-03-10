@@ -1,52 +1,23 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/Nav/Nav.astro";
+import Header from "../../components/Header/Header.astro";
 import About from "../../components/About/About.astro";
 import Projects from "../../components/Projects/Projects.astro";
 import Form from "../../components/Form/Form.astro";
 import "../../styles/main.css";
-import React from "../../components/About/icons/React.astro";
-import HTML from "../../components/About/icons/HTML.astro";
-import CSS from "../../components/About/icons/CSS.astro";
 ---
 
 <Layout title="Home">
-  <div id="scrollable-container">
+  <div id="window-container">
     <header id="header-container">
       <Nav />
     </header>
 
     <main id="main-container">
+      <Header />
+
       <About />
-
-      <section class="about-section">
-        <div class="content">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, culpa
-            corporis, officiis, cupiditate hic unde quasi laboriosam autem incidunt
-            ut aliquam ad suscipit delectus obcaecati debitis beatae expedita
-            similique consequatur?
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, culpa
-            corporis, officiis, cupiditate hic unde quasi laboriosam autem incidunt
-            ut aliquam ad suscipit delectus obcaecati debitis beatae expedita
-            similique consequatur?
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, culpa
-            corporis, officiis, cupiditate hic unde quasi laboriosam autem incidunt
-            ut aliquam ad suscipit delectus obcaecati debitis beatae expedita
-            similique consequatur?
-          </p>
-        </div>
-
-        <div class="icons">
-          <React />
-          <HTML />
-          <CSS />
-        </div>
-      </section>
 
       <Projects />
 
@@ -70,6 +41,13 @@ import CSS from "../../components/About/icons/CSS.astro";
             />
           </g>
         </mask>
+
+        <image
+          class="cloud1"
+          xlink:href="https://assets.codepen.io/721952/cloud1.png"
+          width="1200"
+          height="800"
+        />
 
         <image
           class="cloud2"
@@ -104,7 +82,7 @@ import CSS from "../../components/About/icons/CSS.astro";
   const scrollableContainer = document.getElementById("scrollable-container");
 
   if (scrollableContainer) {
-    scroll(animate(".cloud2", { y: [200, 0] }), {
+    scroll(animate(".cloud2", { y: [50, 0] }), {
       container: scrollableContainer,
     });
     scroll(animate(".cloud3", { y: [150, 0] }), {

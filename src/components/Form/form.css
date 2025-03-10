@@ -13,3 +13,13 @@ label {
   font-size: var(--paragraph-size);
   color: var(--neutral-color-100);
 }
+
+#contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding-block: 8rem 0;
+}

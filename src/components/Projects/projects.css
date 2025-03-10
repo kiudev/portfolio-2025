@@ -50,11 +50,12 @@
   justify-content: space-between;
 }
 
-.project-group {
+#project-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: repeat(1, 1fr);
   gap: 2rem;
+  padding-block: 8rem 0;
 }
 
 @media (max-width: 764px) {
@@ -62,7 +63,7 @@
     width: 100%;
   }
 
-  .project-group {
+  #project-group {
     flex-direction: column;
     flex-wrap: nowrap;
   }

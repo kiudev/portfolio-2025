@@ -1,0 +1,60 @@
+---
+import "./header.css";
+import GithubIcon from "./icons/Github.astro";
+import LinkedinIcon from "./icons/Linkedin.astro";
+---
+
+<header id="header">
+  <div class="header__content">
+    <div class="header__text">
+      <h1 class="header__title"></h1>
+
+      <h2 class="header__position">Frontend Developer</h2>
+    </div>
+
+    <div class="header__logo-container">
+      <img src="/Daniel.jpg" alt="Profile Picture" class="header__logo" />
+    </div>
+  </div>
+
+  <p class="header__headline">
+    Disfruto creando interfaces enfocadas en la <span class="header__highlight"
+      >creatividad visual</span
+    > y en una <span class="header__highlight">experiencia de usuario óptima</span>.
+  </p>
+
+  <div id="social-container">
+    <a href="#">
+      <GithubIcon />
+    </a>
+    <a href="#">
+      <LinkedinIcon />
+    </a>
+  </div>
+</header>
+
+<script>
+  import { animate } from "motion";
+
+  const headingElement = document.querySelector(".header__title");
+
+  const headingText = "Daniel Saavedra";
+  const splitedText = headingText.split("");
+
+  splitedText?.forEach((char) => {
+    const span = document.createElement("span");
+    span.className = "animated-text";
+    span.textContent = char;
+    headingElement?.appendChild(span);
+  });
+
+  const spans = document.querySelectorAll(".animated-text");
+
+  spans.forEach((el, i) => {
+    animate(
+      el,
+      { opacity: [0, 1], filter: ["blur(10px)", "blur(0px)"] },
+      { duration: 1, delay: i * 0.1 },
+    );
+  });
+</script>
