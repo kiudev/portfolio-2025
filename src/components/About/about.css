@@ -1,6 +1,6 @@
 
 
-#about-section {
+#about {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,9 +10,23 @@
   padding-block: 8rem 0;
 }
 
-.content {
+.about__content {
   width: 50%;
-  color: var(--primary-color-100);
+}
+
+.about__heading {
+  font-size: 3rem;
+  font-family: "Barlow", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.about__text--black {
+  background-color: var(--neutral-color-800);
+  backdrop-filter: blur(100px);
+  padding: 1em 2em;
+  border-radius: 10px;
+  color: var(--neutral-color-100);
 }
 
 .icons {

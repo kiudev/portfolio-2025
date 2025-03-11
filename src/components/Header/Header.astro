@@ -1,7 +1,8 @@
 ---
 import "./header.css";
-import GithubIcon from "./icons/Github.astro";
-import LinkedinIcon from "./icons/Linkedin.astro";
+import { icons } from "./icons/icons";
+
+const { position, headline } = Astro.props;
 ---
 
 <header id="header">
@@ -9,7 +10,7 @@ import LinkedinIcon from "./icons/Linkedin.astro";
     <div class="header__text">
       <h1 class="header__title"></h1>
 
-      <h2 class="header__position">Frontend Developer</h2>
+      <h2 class="header__position">{position}</h2>
     </div>
 
     <div class="header__logo-container">
@@ -18,23 +19,21 @@ import LinkedinIcon from "./icons/Linkedin.astro";
   </div>
 
   <p class="header__headline">
-    Disfruto creando interfaces enfocadas en la <span class="header__highlight"
-      >creatividad visual</span
-    > y en una <span class="header__highlight">experiencia de usuario óptima</span>.
+    {headline}
   </p>
 
   <div id="social-container">
-    <a href="#">
-      <GithubIcon />
+    <a href="https://github.com/kiudev" target="_blank" set:html={icons.github}>
     </a>
-    <a href="#">
-      <LinkedinIcon />
+    <a href="https://linkedin.com/in/danisaavedraes" target="_blank" set:html={icons.linkedin}>
     </a>
   </div>
+
+
 </header>
 
 <script>
-  import { animate } from "motion";
+  import { animate, hover } from "motion";
 
   const headingElement = document.querySelector(".header__title");
 
@@ -56,5 +55,17 @@ import LinkedinIcon from "./icons/Linkedin.astro";
       { opacity: [0, 1], filter: ["blur(10px)", "blur(0px)"] },
       { duration: 1, delay: i * 0.1 },
     );
+  });
+
+  animate(
+    ".header__logo",
+    { scale: [0.4, 1] },
+    { ease: "circInOut", duration: 1 },
+  );
+
+  hover("#social-container a", (el) => {
+    animate(el, { scale: 1.2 }, { type: "tween", stiffness: 300 });
+
+    return () => animate(el, { scale: 1 }, { type: "tween", stiffness: 300 });
   });
 </script>

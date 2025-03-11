@@ -11,15 +11,15 @@ import "../../styles/main.css";
 <Layout title="Home">
   <div id="window-container">
     <header id="header-container">
-      <Nav />
+      <Nav about="Sobre mí" projects="Proyectos" contact="Contacto" />
     </header>
 
     <main id="main-container">
-      <Header />
+      <Header position="Frontend Developer" headline="Disfruto creando interfaces enfocadas en la creatividad visual y en una experiencia de usuario óptima." />
 
-      <About />
+      <About heading="Sobre mí" firstParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?" secondParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?" />
 
-      <Projects />
+      <Projects heading="Proyectos" />
 
       <Form />
     </main>
@@ -89,16 +89,4 @@ import "../../styles/main.css";
       container: scrollableContainer,
     });
   }
-
-  hover("#social-container a", (el) => {
-    animate(el, { rotate: 360 }, { type: "tween", stiffness: 300 });
-
-    return () => animate(el, { rotate: 0 }, { type: "tween", stiffness: 300 });
-  });
-
-  animate(
-    ".profile-logo",
-    { scale: [0.4, 1] },
-    { ease: "circInOut", duration: 1 },
-  );
 </script>

@@ -3,23 +3,22 @@ import "./about.css";
 import React from "../../components/About/icons/React.astro";
 import HTML from "../../components/About/icons/HTML.astro";
 import CSS from "../../components/About/icons/CSS.astro";
+
+const { heading, firstParagraph, secondParagraph } = Astro.props;
 ---
 
-<section id="about-section">
-  <div class="content">
-    <p></p>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, culpa
-      corporis, officiis, cupiditate hic unde quasi laboriosam autem incidunt ut
-      aliquam ad suscipit delectus obcaecati debitis beatae expedita similique
-      consequatur?
-    </p>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, culpa
-      corporis, officiis, cupiditate hic unde quasi laboriosam autem incidunt ut
-      aliquam ad suscipit delectus obcaecati debitis beatae expedita similique
-      consequatur?
-    </p>
+<section id="about">
+  <div class="about__content">
+    <h2 class="about__heading">{heading}</h2>
+
+    <div class="about__text--black">
+      <p>
+        {firstParagraph}
+      </p>
+      <p>
+        {secondParagraph}
+      </p>
+    </div>
   </div>
 
   <div class="icons">
@@ -28,5 +27,11 @@ import CSS from "../../components/About/icons/CSS.astro";
     <CSS />
   </div>
 </section>
+
+<script>
+  import { animate } from "motion";
+
+  animate(".about__heading", { y: [-100, 0], opacity: [0, 1] }, { duration: 1 });
+</script>
 
 

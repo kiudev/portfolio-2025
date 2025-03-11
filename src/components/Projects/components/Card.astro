@@ -8,16 +8,9 @@ interface Props {
 const { title, image, tags } = Astro.props;
 ---
 
-<li class="img-container">
-  <header class="img-container-content">
-    <img src={image} alt="" />
-  </header>
-
-
-  <footer>
-    <h3>{title}</h3>
-    <ul>
-      {tags && tags.map((tag) => <li>{tag}</li>)}
-    </ul>
-  </footer>
+<li class="projects__card card">
+  <h3 class="card__title">{title}</h3>
+  <ul class="card__tags">
+    {tags && tags.map((tag) => <li class="card__tag">{tag}</li>)}
+  </ul>
 </li>

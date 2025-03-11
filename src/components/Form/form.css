@@ -1,8 +1,18 @@
-form {
+#contact {
+  padding-block: 8rem 0;
+  width: 100%;
+}
+
+.contact__heading {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.contact__form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 100%;
   background-color: rgb(130, 200, 229, 0.2);
   backdrop-filter: blur(100px);
   padding: 20px;
