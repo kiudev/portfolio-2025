@@ -11,21 +11,21 @@ const { heading, firstParagraph, secondParagraph } = Astro.props;
   <div class="about__content">
     <h2 class="about__heading">{heading}</h2>
 
-    <div class="about__text--black">
-      <p>
-        {firstParagraph}
-      </p>
-      <p>
-        {secondParagraph}
-      </p>
+    <div class="icons">
+      <React />
+      <HTML />
+      <CSS />
     </div>
   </div>
-
-  <div class="icons">
-    <React />
-    <HTML />
-    <CSS />
+  <div class="about__text--black">
+    <p>
+      {firstParagraph}
+    </p>
+    <p>
+      {secondParagraph}
+    </p>
   </div>
+
 </section>
 
 <script>

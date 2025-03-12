@@ -15,9 +15,16 @@ import "../../styles/main.css";
     </header>
 
     <main id="main-container">
-      <Header position="Frontend Developer" headline="Disfruto creando interfaces enfocadas en la creatividad visual y en una experiencia de usuario óptima." />
+      <Header
+        position="Frontend Developer"
+        headline="Disfruto creando interfaces enfocadas en la creatividad visual y en una experiencia de usuario óptima."
+      />
 
-      <About heading="Sobre mí" firstParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?" secondParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?" />
+      <About
+        heading="Te estarás preguntando quién soy"
+        firstParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?"
+        secondParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?"
+      />
 
       <Projects heading="Proyectos" />
 
@@ -81,12 +88,32 @@ import "../../styles/main.css";
 
   const scrollableContainer = document.getElementById("scrollable-container");
 
+  const body = document.body;
+
   if (scrollableContainer) {
     scroll(animate(".cloud2", { y: [50, 0] }), {
       container: scrollableContainer,
     });
     scroll(animate(".cloud3", { y: [150, 0] }), {
       container: scrollableContainer,
+    });
+
+    scrollableContainer.addEventListener("scroll", () => {
+      const scrollPosition = scrollableContainer.scrollTop;
+
+      if (scrollPosition > 400) {
+        animate(body, {
+          backgroundColor: "var(--primary-color-900)",
+          color: "var(--neutral-color-100)",
+        }, { duration: 0.3 });
+
+
+      } else {
+        animate(body, {
+          backgroundColor: "var(--primary-color-600)",
+          color: "var(--neutral-color-900)",
+        }, { duration: 0.3 });
+      }
     });
   }
 </script>

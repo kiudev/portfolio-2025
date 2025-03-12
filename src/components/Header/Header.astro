@@ -23,19 +23,28 @@ const { position, headline } = Astro.props;
   </p>
 
   <div id="social-container">
-    <a href="https://github.com/kiudev" target="_blank" set:html={icons.github}>
-    </a>
-    <a href="https://linkedin.com/in/danisaavedraes" target="_blank" set:html={icons.linkedin}>
-    </a>
+    <a
+      href="https://github.com/kiudev"
+      target="_blank"
+      set:html={icons.github}
+    />
+    <a
+      href="https://linkedin.com/in/danisaavedraes"
+      target="_blank"
+      set:html={icons.linkedin}
+    />
   </div>
 
-
+  <a href="#about" class="header__chevron" set:html={icons.chevronsDown} />
 </header>
 
 <script>
   import { animate, hover } from "motion";
 
   const headingElement = document.querySelector(".header__title");
+  const spans = document.querySelectorAll(".animated-text");
+  const scrollableContainer = document.getElementById("scrollable-container");
+  const chevron = document.querySelector(".header__chevron");
 
   const headingText = "Daniel Saavedra";
   const splitedText = headingText.split("");
@@ -46,8 +55,6 @@ const { position, headline } = Astro.props;
     span.textContent = char;
     headingElement?.appendChild(span);
   });
-
-  const spans = document.querySelectorAll(".animated-text");
 
   spans.forEach((el, i) => {
     animate(
@@ -68,4 +75,22 @@ const { position, headline } = Astro.props;
 
     return () => animate(el, { scale: 1 }, { type: "tween", stiffness: 300 });
   });
+
+  animate(
+    ".header__chevron",
+    { y: [0, 10], opacity: [0, 50] },
+    { duration: 2, repeat: Infinity, ease: "easeInOut" },
+  );
+
+  if (scrollableContainer) {
+    scrollableContainer.addEventListener("scroll", () => {
+      const scrollPosition = scrollableContainer.scrollTop;
+
+      if (scrollPosition > 400) {
+        animate(".header__chevron", { display: "none", color: 'var(--neutral-color-100)' }, { duration: 0.3 });
+      } else {
+        animate(".header__chevron", { display: "block", color: 'var(--neutral-color-900)' }, { duration: 0.3 });
+      }
+    });
+  }
 </script>
