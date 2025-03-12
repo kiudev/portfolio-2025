@@ -20,9 +20,33 @@ const { about, projects, contact } = Astro.props;
 <script>
   import { animate, circInOut } from "motion";
 
+  const scrollableContainer = document.getElementById("scrollable-container");
+
   animate(
     ".nav",
     { y: [-100, 0], filter: ["blur(5px)", "blur(0px)"] },
     { ease: circInOut, duration: 1 },
   );
+
+  if (scrollableContainer) {
+    scrollableContainer.addEventListener("scroll", () => {
+      const scrollPosition = scrollableContainer.scrollTop;
+
+      if (scrollPosition > 400) {
+        animate(
+          ".nav",
+          {
+            backgroundColor: "var(--glass-color-100)",
+          },
+          { duration: 0.3 },
+        );
+      } else {
+        animate(
+          ".nav",
+          { backgroundColor: "var(--glass-color-900)" },
+          { duration: 0.3 },
+        );
+      }
+    });
+  }
 </script>

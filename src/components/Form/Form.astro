@@ -6,15 +6,41 @@ import "./form.css";
   <h2 class="contact__heading">Contact me</h2>
 
   <form class="contact__form" action="">
-    <label for="email">Email</label>
-    <input name="email" type="text" />
+    <label for="contact__email">Email</label>
+    <input name="contact__email" type="text" />
 
-    <label for="subject">Subject</label>
+    <label for="contact__subject">Subject</label>
     <input type="text" name="subject" id="" />
 
-    <label for="message">Message</label>
-    <textarea name="message" id="" cols="30" rows="10"></textarea>
+    <label for="contact__message">Message</label>
+    <textarea name="contact__message" id="" cols="30" rows="10"></textarea>
 
     <input type="submit" value="Send" />
   </form>
 </section>
+
+<script>
+  import { animate } from "motion";
+
+  const scrollableContainer = document.getElementById("scrollable-container");
+
+  if (scrollableContainer) {
+    scrollableContainer.addEventListener("scroll", () => {
+      const scrollPosition = scrollableContainer.scrollTop;
+
+      if (scrollPosition > 400) {
+        animate(
+          ".contact__form",
+          { backgroundColor: "var(--glass-color-100)" },
+          { duration: 0.3 },
+        );
+      } else {
+        animate(
+          ".contact__form",
+          { backgroundColor: "var(--glass-color-900)" },
+          { duration: 0.3 },
+        );
+      }
+    });
+  }
+</script>

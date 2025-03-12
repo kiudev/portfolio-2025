@@ -26,7 +26,7 @@
 }
 
 .projects__card {
-  background-color: var(--neutral-color-800);
+  background-color: var(--glass-color-900);
   backdrop-filter: blur(100px);
   padding: 1em 2em;
   border-radius: 10px;

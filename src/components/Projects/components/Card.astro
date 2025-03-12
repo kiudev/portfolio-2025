@@ -14,3 +14,28 @@ const { title, image, tags } = Astro.props;
     {tags && tags.map((tag) => <li class="card__tag">{tag}</li>)}
   </ul>
 </li>
+
+<script>
+  import { animate } from "motion";
+  const scrollableContainer = document.getElementById("scrollable-container");
+
+  if (scrollableContainer) {
+    scrollableContainer.addEventListener("scroll", () => {
+      const scrollPosition = scrollableContainer.scrollTop;
+
+      if (scrollPosition > 400) {
+        animate(
+          ".projects__card",
+          { backgroundColor: "var(--glass-color-100)" },
+          { duration: 0.3 },
+        );
+      } else {
+        animate(
+          ".projects__card",
+          { backgroundColor: "var(--glass-color-900)" },
+          { duration: 0.3 },
+        );
+      }
+    });
+  }
+</script>

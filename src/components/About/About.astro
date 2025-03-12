@@ -11,11 +11,11 @@ const { heading, firstParagraph, secondParagraph } = Astro.props;
   <div class="about__content">
     <h2 class="about__heading">{heading}</h2>
 
-    <div class="icons">
+    <!-- <div class="icons">
       <React />
       <HTML />
       <CSS />
-    </div>
+    </div> -->
   </div>
   <div class="about__text--black">
     <p>
@@ -31,7 +31,25 @@ const { heading, firstParagraph, secondParagraph } = Astro.props;
 <script>
   import { animate } from "motion";
 
+  const scrollableContainer = document.getElementById("scrollable-container");
+
   animate(".about__heading", { y: [-100, 0], opacity: [0, 1] }, { duration: 1 });
+
+  if (scrollableContainer) {
+    scrollableContainer.addEventListener("scroll", () => {
+      const scrollPosition = scrollableContainer.scrollTop;
+
+      if (scrollPosition > 400) {
+        animate(".about__text--black", {
+          backgroundColor: "var(--glass-color-100)",
+        }, { duration: 0.3 });
+      } else {
+        animate(".about__text--black", {
+          backgroundColor: "var(--glass-color-900)",
+        }, { duration: 0.3 });
+      }
+    });
+  }
 </script>
 
 

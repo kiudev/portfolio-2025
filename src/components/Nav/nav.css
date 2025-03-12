@@ -15,8 +15,8 @@ nav {
   align-items: center;
   border-radius: 50px;
   padding: 1em 2em;
-  background-color: var(--neutral-color-800);
-  backdrop-filter: blur(100px);
+  background-color: var(--glass-color-900);
+  backdrop-filter: blur(10px);
 }
 
 nav a {

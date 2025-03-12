@@ -22,7 +22,7 @@ const { position, headline } = Astro.props;
     {headline}
   </p>
 
-  <div id="social-container">
+  <div class="header__social">
     <a
       href="https://github.com/kiudev"
       target="_blank"
@@ -44,7 +44,6 @@ const { position, headline } = Astro.props;
   const headingElement = document.querySelector(".header__title");
   const spans = document.querySelectorAll(".animated-text");
   const scrollableContainer = document.getElementById("scrollable-container");
-  const chevron = document.querySelector(".header__chevron");
 
   const headingText = "Daniel Saavedra";
   const splitedText = headingText.split("");
@@ -70,7 +69,7 @@ const { position, headline } = Astro.props;
     { ease: "circInOut", duration: 1 },
   );
 
-  hover("#social-container a", (el) => {
+  hover(".header__social a", (el) => {
     animate(el, { scale: 1.2 }, { type: "tween", stiffness: 300 });
 
     return () => animate(el, { scale: 1 }, { type: "tween", stiffness: 300 });
@@ -78,7 +77,7 @@ const { position, headline } = Astro.props;
 
   animate(
     ".header__chevron",
-    { y: [0, 10], opacity: [0, 50] },
+    { y: [-30, 10], opacity: [0, 1] },
     { duration: 2, repeat: Infinity, ease: "easeInOut" },
   );
 
@@ -87,9 +86,41 @@ const { position, headline } = Astro.props;
       const scrollPosition = scrollableContainer.scrollTop;
 
       if (scrollPosition > 400) {
-        animate(".header__chevron", { display: "none", color: 'var(--neutral-color-100)' }, { duration: 0.3 });
+        animate(
+          ".header__headline",
+          { backgroundColor: "var(--glass-color-100)" },
+          { duration: 0.3 },
+        );
+
+        animate(
+          ".header__social a",
+          { backgroundColor: "var(--glass-color-100)" },
+          { duration: 0.3 },
+        );
+
+        animate(
+          ".header__chevron",
+          { display: "none", color: "var(--neutral-color-100)" },
+          { duration: 0.3 },
+        );
       } else {
-        animate(".header__chevron", { display: "block", color: 'var(--neutral-color-900)' }, { duration: 0.3 });
+        animate(
+          ".header__headline",
+          { backgroundColor: "var(--glass-color-900)" },
+          { duration: 0.3 },
+        );
+
+        animate(
+          ".header__social a",
+          { backgroundColor: "var(--glass-color-900)" },
+          { duration: 0.3 },
+        );
+
+        animate(
+          ".header__chevron",
+          { display: "block", color: "var(--neutral-color-900)" },
+          { duration: 0.3 },
+        );
       }
     });
   }

@@ -102,17 +102,23 @@ import "../../styles/main.css";
       const scrollPosition = scrollableContainer.scrollTop;
 
       if (scrollPosition > 400) {
-        animate(body, {
-          backgroundColor: "var(--primary-color-900)",
-          color: "var(--neutral-color-100)",
-        }, { duration: 0.3 });
-
-
+        animate(
+          body,
+          {
+            backgroundColor: "var(--primary-color-900)",
+            color: "var(--neutral-color-100)",
+          },
+          { duration: 0.3 },
+        );
       } else {
-        animate(body, {
-          backgroundColor: "var(--primary-color-600)",
-          color: "var(--neutral-color-900)",
-        }, { duration: 0.3 });
+        animate(
+          body,
+          {
+            backgroundColor: "var(--primary-color-600)",
+            color: "var(--neutral-color-900)",
+          },
+          { duration: 0.3 },
+        );
       }
     });
   }

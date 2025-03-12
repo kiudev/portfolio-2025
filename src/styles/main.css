@@ -12,10 +12,12 @@
   --primary-color-800: #34505c;
   --primary-color-900: #1a282e;
 
-  --neutral-color-100: #ffffee;
+  --neutral-color-100: #faf9f6;
   --neutral-color-200: #e0e0e0;
-  --neutral-color-800: rgba(16, 16, 14, 0.2);
   --neutral-color-900: #10100e;
+
+  --glass-color-100: rgba(250, 249, 246, 0.2);
+  --glass-color-900: rgba(16, 16, 14, 0.2);
 }
 
 .clouds {
@@ -80,7 +82,6 @@
   z-index: 1;
 }
 
-
 #footer-container {
   color: var(--light-color);
 }
@@ -99,7 +100,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color-500);
+  background-color: var(--glass-color-900);
+  backdrop-filter: blur(50px);
 }
 
 ::-webkit-scrollbar-thumb:hover {
