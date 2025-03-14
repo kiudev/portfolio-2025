@@ -1,6 +1,6 @@
 ---
 import "./header.css";
-import { icons } from "./icons/icons";
+import { headerIcons } from "./icons/icons";
 
 const { position, headline } = Astro.props;
 ---
@@ -26,20 +26,21 @@ const { position, headline } = Astro.props;
     <a
       href="https://github.com/kiudev"
       target="_blank"
-      set:html={icons.github}
+      set:html={headerIcons.github}
     />
     <a
       href="https://linkedin.com/in/danisaavedraes"
       target="_blank"
-      set:html={icons.linkedin}
+      set:html={headerIcons.linkedin}
     />
   </div>
 
-  <a href="#about" class="header__chevron" set:html={icons.chevronsDown} />
+  <a href="#about" class="header__chevron" set:html={headerIcons.chevronsDown} />
 </header>
 
 <script>
   import { animate, hover } from "motion";
+  import { scrollAnimations } from "../../utils/scrollAnimations";
 
   const headingElement = document.querySelector(".header__title");
   const spans = document.querySelectorAll(".animated-text");
@@ -81,47 +82,44 @@ const { position, headline } = Astro.props;
     { duration: 2, repeat: Infinity, ease: "easeInOut" },
   );
 
-  if (scrollableContainer) {
-    scrollableContainer.addEventListener("scroll", () => {
-      const scrollPosition = scrollableContainer.scrollTop;
-
-      if (scrollPosition > 400) {
-        animate(
-          ".header__headline",
-          { backgroundColor: "var(--glass-color-100)" },
-          { duration: 0.3 },
-        );
-
-        animate(
-          ".header__social a",
-          { backgroundColor: "var(--glass-color-100)" },
-          { duration: 0.3 },
-        );
-
-        animate(
-          ".header__chevron",
-          { display: "none", color: "var(--neutral-color-100)" },
-          { duration: 0.3 },
-        );
-      } else {
-        animate(
-          ".header__headline",
-          { backgroundColor: "var(--glass-color-900)" },
-          { duration: 0.3 },
-        );
-
-        animate(
-          ".header__social a",
-          { backgroundColor: "var(--glass-color-900)" },
-          { duration: 0.3 },
-        );
-
-        animate(
-          ".header__chevron",
-          { display: "block", color: "var(--neutral-color-900)" },
-          { duration: 0.3 },
-        );
-      }
-    });
-  }
+  scrollAnimations({
+    animations: [
+      {
+        targetSelector: ".header__headline",
+        animationProps: {
+          backgroundColor: "var(--glass-color-100)",
+        },
+        duration: 0.3,
+        reverseAnimationProps: { backgroundColor: "var(--glass-color-900)" },
+        reverseDuration: 0.3,
+      },
+      {
+        targetSelector: ".header__social a",
+        animationProps: {
+          backgroundColor: "var(--glass-color-100)",
+        },
+        duration: 0.3,
+        reverseAnimationProps: { backgroundColor: "var(--glass-color-900)" },
+        reverseDuration: 0.3,
+      },
+      {
+        targetSelector: ".header__chevron",
+        animationProps: {
+          color: "var(--neutral-color-100)",
+        },
+        duration: 0.3,
+        reverseAnimationProps: { color: "var(--neutral-color-900)" },
+        reverseDuration: 0.3,
+      },
+      {
+        targetSelector: ".header__title",
+        animationProps: {
+          color: "var(--neutral-color-100)",
+        },
+        duration: 0.3,
+        reverseAnimationProps: { color: "var(--neutral-color-900)" },
+        reverseDuration: 0.3,
+      },
+    ],
+  });
 </script>

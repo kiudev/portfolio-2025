@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header.astro";
 import About from "../../components/About/About.astro";
 import Projects from "../../components/Projects/Projects.astro";
 import Form from "../../components/Form/Form.astro";
+import Footer from "../../components/Footer/Footer.astro";
 import "../../styles/main.css";
 ---
 
@@ -21,14 +22,18 @@ import "../../styles/main.css";
       />
 
       <About
-        heading="Te estarás preguntando quién soy"
-        firstParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?"
-        secondParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?"
+      heading="Sobre mí"
+        secondHeading="Especializado en el desarrollo frontend"
+        firstParagraph="Hola, mi nombre es Daniel 👋"
+        secondParagraph="Soy desarrollador frontend especializado en la creación de interfaces web. Me encanta trabajar con tecnologías modernas y crear experiencias visuales únicas y atractivas para los usuarios."
+        thirdParagraph="Me especializo en el desarrollo de aplicaciones web utilizando tecnologías como React, Next.js, Tailwind CSS y otras herramientas modernas. Siempre estoy buscando aprender algo nuevo y mejorar mis habilidades."
       />
 
       <Projects heading="Proyectos" />
 
-      <Form />
+      <!-- <Form heading="Contacta conmigo" email="Correo" subject="Asunto" message="Mensaje" send="Enviar" /> -->
+
+      <Footer />
     </main>
 
     <footer>
@@ -84,7 +89,8 @@ import "../../styles/main.css";
 </Layout>
 
 <script>
-  import { animate, hover, scroll } from "motion";
+  import { animate, scroll } from "motion";
+  import { scrollAnimations } from "../../utils/scrollAnimations";
 
   const scrollableContainer = document.getElementById("scrollable-container");
 
@@ -98,28 +104,33 @@ import "../../styles/main.css";
       container: scrollableContainer,
     });
 
-    scrollableContainer.addEventListener("scroll", () => {
-      const scrollPosition = scrollableContainer.scrollTop;
-
-      if (scrollPosition > 400) {
-        animate(
-          body,
-          {
+    scrollAnimations({
+      animations: [
+        {
+          targetSelector: body,
+          animationProps: {
             backgroundColor: "var(--primary-color-900)",
-            color: "var(--neutral-color-100)",
+            color: "var(--neutral-color-100)"
           },
-          { duration: 0.3 },
-        );
-      } else {
-        animate(
-          body,
-          {
+          duration: 0.3,
+          reverseAnimationProps: {
             backgroundColor: "var(--primary-color-600)",
-            color: "var(--neutral-color-900)",
+            color: "var(--neutral-color-900)"
           },
-          { duration: 0.3 },
-        );
-      }
+          reverseDuration: 0.3,
+        },
+        {
+          targetSelector: "#window-container",
+          animationProps: {
+            borderInline: "2px solid var(--glass-color-100)",
+          },
+          duration: 0.3,
+          reverseAnimationProps: {
+            borderInline: "2px solid var(--glass-color-900)",
+          },
+          reverseDuration: 0.3,
+        },
+      ],
     });
   }
 </script>

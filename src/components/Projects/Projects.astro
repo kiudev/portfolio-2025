@@ -7,7 +7,7 @@ const { heading } = Astro.props;
 
 <section id="projects">
   <h2 class="projects__heading">{heading}</h2>
-
+  <hr class="projects__hr">
   <ul class="projects__group">
     <Card
       title="WebPix"
@@ -23,10 +23,32 @@ const { heading } = Astro.props;
   </ul>
 </section>
 
-<script type="module">
-  import { scroll, animate } from "motion";
+<script>
+  import { scrollAnimations } from "../../utils/scrollAnimations";
 
-  const items = document.querySelectorAll(".img-container");
-
-  animate(".projects__heading", { y: [-100, 0], opacity: [0, 1] }, { duration: 5 });
+  scrollAnimations({
+    animations: [
+      {
+        targetSelector: ".card__tag",
+        animationProps: {
+          backgroundColor: "var(--glass-color-100)",
+        },
+        duration: 0.3,
+        reverseAnimationProps: { backgroundColor: "var(--glass-color-900)" },
+        reverseDuration: 0.3,
+      },
+      {
+        targetSelector: ".projects__hr",
+        animationProps: {
+          border: "1px solid var(--neutral-color-100)",
+          filter: "drop-shadow(0px 0px 5px var(--neutral-color-100))",
+        },
+        duration: 0.3,
+        reverseAnimationProps: {
+          border: "1px solid var(--neutral-color-900)",
+         },
+        reverseDuration: 0.3,
+      },
+    ],
+  });
 </script>
