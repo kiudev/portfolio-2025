@@ -85,3 +85,18 @@
 .header__chevron--hidden {
   display: none;
 }
+
+@media (max-width: 1440px) {
+  .header__title {
+    font-size: 4rem;
+  }
+
+  .header__logo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .header__headline {
+    font-size: 14px;
+  }
+}

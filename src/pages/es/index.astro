@@ -7,6 +7,7 @@ import Projects from "../../components/Projects/Projects.astro";
 import Form from "../../components/Form/Form.astro";
 import Footer from "../../components/Footer/Footer.astro";
 import "../../styles/main.css";
+import "../../styles/media-queries.css";
 ---
 
 <Layout title="Home">
@@ -22,7 +23,7 @@ import "../../styles/main.css";
       />
 
       <About
-      heading="Sobre mí"
+        heading="Sobre mí"
         secondHeading="Especializado en el desarrollo frontend"
         firstParagraph="Hola, mi nombre es Daniel 👋"
         secondParagraph="Soy desarrollador frontend especializado en la creación de interfaces web. Me encanta trabajar con tecnologías modernas y crear experiencias visuales únicas y atractivas para los usuarios."
@@ -97,6 +98,12 @@ import "../../styles/main.css";
   const body = document.body;
 
   if (scrollableContainer) {
+    // if (window.matchMedia("screen and (max-width: 768px")) {
+    //   scroll(animate(".cloud2", { y: [1000, 500] }), {
+    //     container: scrollableContainer,
+    //   });
+    // }
+
     scroll(animate(".cloud2", { y: [50, 0] }), {
       container: scrollableContainer,
     });
@@ -110,23 +117,27 @@ import "../../styles/main.css";
           targetSelector: body,
           animationProps: {
             backgroundColor: "var(--primary-color-900)",
-            color: "var(--neutral-color-100)"
+            color: "var(--neutral-color-100)",
           },
           duration: 0.3,
           reverseAnimationProps: {
             backgroundColor: "var(--primary-color-600)",
-            color: "var(--neutral-color-900)"
+            color: "var(--neutral-color-900)",
           },
           reverseDuration: 0.3,
         },
         {
           targetSelector: "#window-container",
           animationProps: {
-            borderInline: "2px solid var(--glass-color-100)",
+            borderInline: window.matchMedia("(min-width: 1440px)").matches
+              ? "2px solid var(--glass-color-100)"
+              : "none",
           },
           duration: 0.3,
           reverseAnimationProps: {
-            borderInline: "2px solid var(--glass-color-900)",
+            borderInline: window.matchMedia("(min-width: 1440px)").matches
+              ? "2px solid var(--glass-color-900)"
+              : "none",
           },
           reverseDuration: 0.3,
         },
