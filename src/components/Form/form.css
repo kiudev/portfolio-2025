@@ -1,9 +1,22 @@
 #contact {
-  padding-block: 8rem 0;
+  padding-block: 5rem 5rem;
   width: 100%;
 }
 
-.contact__heading {
+.contact__form-container {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  padding-top: 3rem;
+}
+
+.contact__first-heading {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.contact__second-heading {
   font-size: 3rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -13,15 +26,52 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: var(--glass-color-900);
-  backdrop-filter: blur(50px);
-  padding: 20px;
+
   border-radius: 10px;
+  width: 100%;
 }
 
 label {
   font-size: var(--paragraph-size);
   color: var(--neutral-color-100);
+  margin-top: 10px;
+}
+
+.form__email, .form__subject, .form__message {
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: var(--glass-color-100);
+  color: var(--neutral-color-100);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgb(250, 249, 246, 0.3);
+}
+
+.form__email::placeholder, .form__subject::placeholder, .form__message::placeholder {
+  color: var(--neutral-color-100);
+  opacity: 0.4;
+}
+
+.form__message {
+  resize: none;
+  font-family: "Geist", sans-serif;
+}
+
+.form__submit {
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: var(--neutral-color-100);
+  backdrop-filter: blur(50px);
+  color: var(--neutral-color-900);
+  cursor: pointer;
+  font-weight: 600;
+  width: 20%;
+  margin-top: 10px;
 }
 
 #contact-container {

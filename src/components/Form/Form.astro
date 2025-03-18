@@ -1,56 +1,114 @@
 ---
 import "./form.css";
 
-const { heading, email, subject, message, send } = Astro.props;
+const { firstHeading, secondHeading, email, subject, message, send, emailPlaceholder, subjectPlaceholder, messagePlaceholder } =
+  Astro.props;
 ---
 
 <section id="contact">
-  <h2 class="contact__heading">{heading}</h2>
+  <h2 class="contact__first-heading">{firstHeading}</h2>
+  <hr class="about__hr" />
+  <section class="contact__form-container">
+    <form class="contact__form form" method="post">
+      <input
+        type="hidden"
+        name="access_key"
+        value="0085b51f-0c31-442d-8a6e-a4010ed92634"
+      />
 
-  <form
-    class="contact__form"
-    action="https://api.web3forms.com/submit"
-    method="post"
-  >
-    <input
-      type="hidden"
-      name="access_key"
-      value="0085b51f-0c31-442d-8a6e-a4010ed92634"
-    />
+      <label for="email">{email}</label>
+      <input class="form__email" name="email" type="text" placeholder={emailPlaceholder} required />
 
-    <label for="email">{email}</label>
-    <input name="email" type="text" />
+      <label for="subject">{subject}</label>
+      <input class="form__subject" type="text" name="subject" placeholder={subjectPlaceholder} required />
 
-    <label for="subject">{subject}</label>
-    <input type="text" name="subject" id="" />
+      <label for="message">{message}</label>
+      <textarea
+        class="form__message"
+        name="message"
+        cols="30"
+        rows="10"
+        placeholder={messagePlaceholder}
+        required></textarea>
 
-    <label for="message">{message}</label>
-    <textarea name="message" cols="30" rows="10"></textarea>
+      <input class="form__submit" type="submit" value={send} />
+    </form>
 
-    <input
-      type="hidden"
-      name="redirect"
-      value="https://web3forms.com/success"
-    />
-
-    <input type="submit" value={send} />
-  </form>
+    <!-- <h3 class="contact__second-heading">{secondHeading}</h3> -->
+  </section>
 </section>
 
 <script>
-  import { scrollAnimations } from "../../utils/scrollAnimations";
+  const form = document.querySelector(".contact__form") as HTMLFormElement;
 
-  scrollAnimations({
-    animations: [
-      {
-        targetSelector: ".contact__form",
-        animationProps: {
-          backgroundColor: "var(--glass-color-100)",
-        },
-        duration: 0.3,
-        reverseAnimationProps: { backgroundColor: "var(--glass-color-900)" },
-        reverseDuration: 0.3,
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector(".form__email") as HTMLInputElement;
+
+    const validMessage = document.createElement("p");
+    form.appendChild(validMessage);
+    validMessage.className = "contact__result";
+
+    const emailValue = email.value;
+    const emailRegex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim;
+
+    if (!emailRegex.test(emailValue)) {
+      validMessage.innerHTML = "Please enter a valid email address";
+      email.style.border = "1px solid red";
+
+      setTimeout(() => {
+        email.style.border = "none";
+        form.removeChild(validMessage);
+      }, 3000);
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-    ],
+      body: json,
+    })
+      .then(async (response) => {
+        const data = await response.json();
+
+        if (response.ok) {
+          validMessage.innerHTML = data.message;
+        } else {
+          validMessage.innerHTML = data.message;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        validMessage.innerHTML = "Something went wrong!";
+      })
+      .then(() => {
+        form.reset();
+        setTimeout(() => {
+          form.appendChild(validMessage);
+        }, 3000);
+      });
   });
+
+  // scrollAnimations({
+  //   animations: [
+  //     {
+  //       targetSelector: ".contact__form",
+  //       animationProps: {
+  //         backgroundColor: "var(--glass-color-100)",
+  //       },
+  //       duration: 0.3,
+  //       reverseAnimationProps: { backgroundColor: "var(--glass-color-900)" },
+  //       reverseDuration: 0.3,
+  //     },
+  //   ],
+  // });
 </script>
