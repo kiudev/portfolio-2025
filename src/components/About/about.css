@@ -16,21 +16,10 @@
   margin-top: 20px;
 }
 
-.about__content {
-  width: 100%;
-}
-
 .about__first-heading {
   font-size: 1.5rem;
   font-family: "Barlow", sans-serif;
   text-transform: uppercase;
-}
-
-.about__second-heading {
-  font-size: 3rem;
-  font-family: "Barlow", sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
 }
 
 .about__text {
