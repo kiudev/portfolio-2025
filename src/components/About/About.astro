@@ -17,9 +17,6 @@ const {
   <h2 class="about__first-heading">{heading}</h2>
   <hr class="about__hr" />
   <section class="about__container">
-    <div class="about__content">
-      <h2 class="about__second-heading">{secondHeading}</h2>
-    </div>
     <div class="about__text">
       <p>
         {firstParagraph}
@@ -47,16 +44,6 @@ const {
         duration: 0.3,
         reverseAnimationProps: { backgroundColor: "var(--glass-color-900)" },
         reverseDuration: 0.3,
-      },
-      {
-        targetSelector: ".about__second-heading",
-        animationProps: {
-          x: [-100, 0],
-          opacity: [0, 1],
-        },
-        duration: 1.2,
-        reverseAnimationProps: {},
-        reverseDuration: 0,
       },
       {
         targetSelector: ".about__hr",
