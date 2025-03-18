@@ -31,10 +31,9 @@
   font-family: "Barlow", sans-serif;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  /* transform: translateX(-100px); */
 }
 
-.about__text--black {
+.about__text {
   background-color: var(--glass-color-900);
   backdrop-filter: blur(50px);
   padding: 1em 2em;

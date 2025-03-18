@@ -35,7 +35,7 @@
 
 .header__headline {
   color: var(--neutral-color-100);
-  font-size: var(--paragraph-size);
+  font-size: 1rem;
   line-height: 1.5;
   width: 100%;
   background-color: var(--glass-color-900);
@@ -87,16 +87,8 @@
 }
 
 @media (max-width: 1440px) {
-  .header__title {
-    font-size: 4rem;
-  }
-
   .header__logo {
     width: 180px;
     height: 180px;
-  }
-
-  .header__headline {
-    font-size: 14px;
   }
 }

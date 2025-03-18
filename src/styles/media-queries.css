@@ -1,3 +1,4 @@
+/* Mobile */
 @media screen and (max-width: 768px) {
   #window-container {
     width: 100%;
@@ -28,8 +29,50 @@
     gap: 5rem;
     margin-top: 20px;
   }
+
+  .header__title {
+    font-size: 3rem;
+  }
+
+  .header__position {
+    font-size: 1.3rem;
+  }
+
+  .header__headline {
+    font-size: 0.8rem;
+  }
+
+  .about__first-heading {
+    font-size: 1rem;
+  }
+
+  .about__second-heading {
+    font-size: 2rem;
+  }
+
+  .about__text {
+    font-size: 0.8rem;
+  }
+
+  .about__container {
+    gap: 2rem;
+  }
+
+  .projects__heading {
+    font-size: 1rem;
+  }
+
+  .card__title {
+    font-size: 1.5rem;
+  }
+
+  .card__tag {
+    font-size: 0.7rem;
+    padding: 8px 10px;
+  }
 }
 
+/* Tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
   #window-container {
     width: 100%;
@@ -39,20 +82,19 @@
   #main-container {
     padding-inline: 40px;
   }
+
+  .header__title {
+    font-size: 4rem;
+  }
 }
 
-@media (min-width: 1024px) {
+/* Laptop */
+@media (min-width: 1024px) and (max-width: 1440px) {
   #main-container {
     padding-inline: 60px;
   }
-}
 
-@media (min-width: 1440px) {
-  #window-container {
-    width: 1344px;
-  }
-
-  #main-container {
-    padding-inline: 200px;
+  .header__title {
+    font-size: 5rem;
   }
 }

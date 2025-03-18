@@ -9,18 +9,29 @@ const { heading, email, subject, message, send } = Astro.props;
 
   <form
     class="contact__form"
-    action="mailto:danisaavedraes@gmail.com"
+    action="https://api.web3forms.com/submit"
     method="post"
-    enctype="text/plain"
   >
-    <label for="contact__email">{email}</label>
-    <input name="contact__email" type="text" />
+    <input
+      type="hidden"
+      name="access_key"
+      value="0085b51f-0c31-442d-8a6e-a4010ed92634"
+    />
 
-    <label for="contact__subject">{subject}</label>
+    <label for="email">{email}</label>
+    <input name="email" type="text" />
+
+    <label for="subject">{subject}</label>
     <input type="text" name="subject" id="" />
 
-    <label for="contact__message">{message}</label>
-    <textarea name="contact__message" id="" cols="30" rows="10"></textarea>
+    <label for="message">{message}</label>
+    <textarea name="message" cols="30" rows="10"></textarea>
+
+    <input
+      type="hidden"
+      name="redirect"
+      value="https://web3forms.com/success"
+    />
 
     <input type="submit" value={send} />
   </form>

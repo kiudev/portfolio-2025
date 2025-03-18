@@ -46,7 +46,7 @@
 
 #window-container {
   position: relative;
-  width: 70vw;
+  width: 1344px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -68,7 +68,7 @@
   align-items: center;
   margin: auto;
   width: 100%;
-  padding: 0 100px;
+  padding-inline: 200px;
   z-index: 1;
 }
 
