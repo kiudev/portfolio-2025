@@ -59,7 +59,3 @@
   height: 100px;
   rotate: -45deg;
 }
-
-.about__hr {
-  border: 1px solid var(--neutral-color-900);
-}

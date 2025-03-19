@@ -1,13 +1,13 @@
 ---
 import "./form.css";
 
-const { firstHeading, secondHeading, email, subject, message, send, emailPlaceholder, subjectPlaceholder, messagePlaceholder } =
+const { firstHeading, email, subject, message, send, emailPlaceholder, subjectPlaceholder, messagePlaceholder } =
   Astro.props;
 ---
 
 <section id="contact">
   <h2 class="contact__first-heading">{firstHeading}</h2>
-  <hr class="about__hr" />
+
   <section class="contact__form-container">
     <form class="contact__form form" method="post">
       <input
@@ -33,8 +33,6 @@ const { firstHeading, secondHeading, email, subject, message, send, emailPlaceho
 
       <input class="form__submit" type="submit" value={send} />
     </form>
-
-    <!-- <h3 class="contact__second-heading">{secondHeading}</h3> -->
   </section>
 </section>
 

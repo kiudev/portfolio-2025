@@ -7,18 +7,20 @@ const { heading } = Astro.props;
 
 <section id="projects">
   <h2 class="projects__heading">{heading}</h2>
-  <hr class="projects__hr">
+
   <ul class="projects__group">
     <Card
       title="WebPix"
       image="/screely-1738234351139.png"
-      tags={["React", "TypeScript", "Tailwind"]}
+      tags={["React", "TypeScript", "Tailwind CSS", "Vite", "i18n", "FilePond"]}
+      link="https://webpix-chi.vercel.app"
     />
 
     <Card
-      title="WebPix"
-      image="/screely-1738234351139.png"
-      tags={["React", "TypeScript", "Tailwind"]}
+      title="Cinopolis"
+      image="/cinopolis.png"
+      tags={["Next.js", "TypeScript", "TailwindCSS", "ShadCN", "TMDB API"]}
+      link="https://cinopolis.vercel.app"
     />
   </ul>
 </section>
@@ -29,15 +31,6 @@ const { heading } = Astro.props;
   scrollAnimations({
     animations: [
       {
-        targetSelector: ".card__tag",
-        animationProps: {
-          backgroundColor: "var(--glass-color-100)",
-        },
-        duration: 0.3,
-        reverseAnimationProps: { backgroundColor: "var(--glass-color-900)" },
-        reverseDuration: 0.3,
-      },
-      {
         targetSelector: ".projects__hr",
         animationProps: {
           border: "1px solid var(--neutral-color-100)",
@@ -45,7 +38,7 @@ const { heading } = Astro.props;
         duration: 0.3,
         reverseAnimationProps: {
           border: "1px solid var(--neutral-color-900)",
-         },
+        },
         reverseDuration: 0.3,
       },
     ],

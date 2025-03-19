@@ -1,17 +1,26 @@
 ---
+import { projectsIcons } from "../icons/icons";
+
 interface Props {
   title: string;
   image: string;
   tags: string[];
+  link: string;
 }
 
-const { title, image, tags } = Astro.props;
+const { title, image, tags, link } = Astro.props;
 ---
 
-<li class="projects__card card">
-  <img class="card__image" src="/screely-1738234351139.png" alt="">
-  <h3 class="card__title">{title}</h3>
-  <ul class="card__tags">
-    {tags && tags.map((tag) => <li class="card__tag">{tag}</li>)}
-  </ul>
-</li>
+<a href={link} class="card__link" target="_blank">
+  <li class="projects__card card">
+    <!-- <img class="card__image" src="/screely-1738234351139.png" alt="" /> -->
+    <div class="card__header">
+      <h3 class="card__title">{title}</h3>
+      <span set:html={projectsIcons.linkIcon}></span>
+    </div>
+
+    <ul class="card__tags">
+      {tags && tags.map((tag) => <li class="card__tag">{tag}</li>)}
+    </ul>
+  </li>
+</a>

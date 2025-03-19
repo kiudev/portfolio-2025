@@ -5,23 +5,36 @@ import Header from "../../components/Header/Header.astro";
 import About from "../../components/About/About.astro";
 import Projects from "../../components/Projects/Projects.astro";
 import Form from "../../components/Form/Form.astro";
+import Footer from "../../components/Footer/Footer.astro";
 import "../../styles/main.css";
+import "../../styles/media-queries.css";
 ---
 
 <Layout title="Home">
   <div id="window-container">
     <header id="header-container">
-      <Nav about="About me" projects="Projects" contact="Contact" />
+      <Nav about="Sobre mí" projects="Proyectos" contact="Contacto" />
     </header>
 
     <main id="main-container">
-      <Header position="Frontend Developer" headline="Disfruto creando interfaces enfocadas en la creatividad visual y en una experiencia de usuario óptima." />
+      <Header
+        position="Frontend Developer"
+        headline="I enjoy creating interfaces with a focus on visual creativity and optimal user experience."
+      />
 
-      <About heading="About me" firstParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?" secondParagraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet ipsa at quaerat, debitis quidem molestias, alias assumenda nisi sunt ut aperiam illum dolores voluptates quo perspiciatis aliquam cum distinctio nulla?" />
+      <About
+        heading="About me"
+        secondHeading="Especializado en el desarrollo frontend"
+        firstParagraph="Hola, I am Daniel 👋"
+        secondParagraph="I am a frontend developer specialising in creating web interfaces. I love working with modern technologies and creating unique and engaging visual experiences for users."
+        thirdParagraph="I specialize in web application development using technologies like React, Next.js, Tailwind CSS and other modern tools. I am always looking to learn something new and improve my skills."
+      />
 
       <Projects heading="Projects" />
 
-      <Form />
+      <Form firstHeading="Contact" email="Email" subject="Subject" message="Message" send="Send" emailPlaceholder="Your email address" subjectPlaceholder="Message subject" messagePlaceholder="Type your message here..." />
+
+      <Footer />
     </main>
 
     <footer>
@@ -77,9 +90,12 @@ import "../../styles/main.css";
 </Layout>
 
 <script>
-  import { animate, hover, scroll } from "motion";
+  import { animate, scroll } from "motion";
+  import { scrollAnimations } from "../../utils/scrollAnimations";
 
   const scrollableContainer = document.getElementById("scrollable-container");
+
+  const body = document.body;
 
   if (scrollableContainer) {
     scroll(animate(".cloud2", { y: [50, 0] }), {
@@ -87,6 +103,39 @@ import "../../styles/main.css";
     });
     scroll(animate(".cloud3", { y: [150, 0] }), {
       container: scrollableContainer,
+    });
+
+    scrollAnimations({
+      animations: [
+        {
+          targetSelector: body,
+          animationProps: {
+            backgroundColor: "var(--primary-color-900)",
+            color: "var(--neutral-color-100)",
+          },
+          duration: 0.3,
+          reverseAnimationProps: {
+            backgroundColor: "var(--primary-color-600)",
+            color: "var(--neutral-color-900)",
+          },
+          reverseDuration: 0.3,
+        },
+        {
+          targetSelector: "#window-container",
+          animationProps: {
+            borderInline: window.matchMedia("(min-width: 1440px)").matches
+              ? "2px solid var(--glass-color-100)"
+              : "none",
+          },
+          duration: 0.3,
+          reverseAnimationProps: {
+            borderInline: window.matchMedia("(min-width: 1440px)").matches
+              ? "2px solid var(--glass-color-900)"
+              : "none",
+          },
+          reverseDuration: 0.3,
+        },
+      ],
     });
   }
 </script>
