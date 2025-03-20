@@ -17,10 +17,10 @@ const { title, image, tags, link } = Astro.props as CardProps;
       <h3 class="card__title">{title}</h3>
       <span set:html={projectsIcons.linkIcon}></span>
     </div>
-    <img class="card__image" src={image} alt="" />
 
     <ul class="card__tags">
       {tags && tags.map((tag) => <li class="card__tag">{tag}</li>)}
     </ul>
   </li>
+  <img class="card__image" src={image} alt="" />
 </a>
