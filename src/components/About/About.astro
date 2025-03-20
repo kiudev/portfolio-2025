@@ -3,19 +3,20 @@ import "./about.css";
 import React from "../../components/About/icons/React.astro";
 import HTML from "../../components/About/icons/HTML.astro";
 import CSS from "../../components/About/icons/CSS.astro";
+import Timeline from "./components/Timeline.astro";
 
 const {
   heading,
-  secondHeading,
   firstParagraph,
   secondParagraph,
   thirdParagraph,
+  description
 } = Astro.props;
 ---
 
 <div id="about">
   <h2 class="about__first-heading">{heading}</h2>
-  
+
   <section class="about__container">
     <div class="about__text">
       <p>
@@ -29,6 +30,8 @@ const {
       </p>
     </div>
   </section>
+
+  <Timeline description={description} />
 </div>
 
 <script>

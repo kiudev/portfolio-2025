@@ -1,0 +1,13 @@
+---
+import TimelineItem from './TimelineItem.astro'
+
+const { description } = Astro.props;
+---
+
+<section class="timeline">
+  <ul class="timeline__group">
+    <TimelineItem items={[
+      { year: 2024, title: "Web Designer", description: description },
+    ]} />
+  </ul>
+</section>
