@@ -34,20 +34,4 @@ const { heading } = Astro.props;
 
     return () => animate(el, { scale: 1 }, { type: "tween", stiffness: 300 });
   })
-
-  scrollAnimations({
-    animations: [
-      {
-        targetSelector: ".projects__hr",
-        animationProps: {
-          border: "1px solid var(--neutral-color-100)",
-        },
-        duration: 0.3,
-        reverseAnimationProps: {
-          border: "1px solid var(--neutral-color-900)",
-        },
-        reverseDuration: 0.3,
-      },
-    ],
-  });
 </script>
