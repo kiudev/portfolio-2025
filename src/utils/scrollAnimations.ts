@@ -14,6 +14,7 @@ interface ScrollAnimationProps {
 
 export function scrollAnimations({ animations }: ScrollAnimationProps) {
   const scrollableContainer = document.getElementById("scrollable-container");
+  let targetElement = null;
 
   if (scrollableContainer) {
     let hasScrolled = false;
@@ -25,6 +26,15 @@ export function scrollAnimations({ animations }: ScrollAnimationProps) {
         hasScrolled = true;
 
         animations.forEach(({ targetSelector, animationProps, duration }) => {
+          targetElement =
+            typeof targetSelector === "string"
+              ? document.querySelector(targetSelector)
+              : targetSelector;
+
+          if (!targetElement) {
+            console.error(`Element with selector "${targetSelector}" not found when scrolling down`);
+          }
+
           animate(targetSelector, animationProps, { duration });
         });
       } else if (scrollPosition < 300 && hasScrolled) {
@@ -32,6 +42,12 @@ export function scrollAnimations({ animations }: ScrollAnimationProps) {
 
         animations.forEach(
           ({ targetSelector, reverseAnimationProps, reverseDuration }) => {
+            targetElement = typeof targetSelector === "string" ? document.querySelector(targetSelector) : targetSelector;
+
+            if (!targetElement) {
+              console.error(`Element with selector "${targetSelector}" not found when scrolling up`);
+            }
+
             animate(targetSelector, reverseAnimationProps, {
               duration: reverseDuration,
             });
