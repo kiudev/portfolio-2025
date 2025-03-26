@@ -1,6 +1,10 @@
 ---
 import "./header.css";
-import { headerIcons } from "./icons/icons";
+import {
+  githubIcon,
+  linkedinIcon,
+  chevronsDownIcon,
+} from "@/assets/icons/icons";
 
 const { position, headline } = Astro.props;
 ---
@@ -23,19 +27,18 @@ const { position, headline } = Astro.props;
   </p>
 
   <div class="header__social">
-    <a
-      href="https://github.com/kiudev"
-      target="_blank"
-      set:html={headerIcons.github}
-    />
+    <a href="https://github.com/kiudev" target="_blank" set:html={githubIcon} />
+
     <a
       href="https://linkedin.com/in/danisaavedraes"
       target="_blank"
-      set:html={headerIcons.linkedin}
+      set:html={linkedinIcon}
     />
+
+    <a href="#contact" set:html="Contacta" />
   </div>
 
-  <a href="#about" class="header__chevron" set:html={headerIcons.chevronsDown} />
+  <a href="#about" class="header__chevron" set:html={chevronsDownIcon} />
 </header>
 
 <script>

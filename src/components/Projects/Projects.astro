@@ -2,7 +2,7 @@
 import "./projects.css";
 import Card from "./components/Card.astro";
 
-const { heading } = Astro.props;
+const { heading, firstDescription, secondDescription } = Astro.props;
 ---
 
 <section id="projects">
@@ -14,6 +14,7 @@ const { heading } = Astro.props;
       image="/screely-1738234351139.png"
       tags={["React", "TypeScript", "Tailwind CSS", "Vite", "i18n", "FilePond"]}
       link="https://webpix-chi.vercel.app"
+      description={firstDescription}
     />
 
     <Card
@@ -21,6 +22,7 @@ const { heading } = Astro.props;
       image="/images/cinopolis.png"
       tags={["Next.js", "TypeScript", "TailwindCSS", "ShadCN", "TMDB API"]}
       link="https://cinopolis.vercel.app"
+      description={secondDescription}
     />
   </ul>
 </section>

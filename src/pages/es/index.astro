@@ -1,14 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Nav from "@/components/Nav/Nav.astro";
-import Header from "@/components/Header/Header.astro";
-import About from "@/components/About/About.astro";
-import Projects from "@/components/Projects/Projects.astro";
-import Form from "@/components/Form/Form.astro";
-import Footer from "@/components/Footer/Footer.astro";
-
-import "@/styles/main.css"
-import "@/styles/media-queries.css";
+import Nav from "@/components/nav/Nav.astro";
+import Header from "@/components/header/Header.astro";
+import About from "@/components/about/About.astro";
+import Projects from "@/components/projects/Projects.astro";
+import Form from "@/components/form/Form.astro";
+import Footer from "@/components/footer/Footer.astro";
+import "@/styles/global.css"
 ---
 
 <Layout title="Home">
@@ -32,7 +30,7 @@ import "@/styles/media-queries.css";
         description="Realizaba el diseño y el desarrollo de interfaces web para diversos clientes. Al mismo tiempo, me encargaba de optimizar el tiempo de carga basandome en métricas de Core Web Vitals y también de optimizar el SEO On Page para aumentar la visibilidad en Google."
       />
 
-      <Projects heading="Proyectos" />
+      <Projects heading="Proyectos" firstDescription="Optimiza cualquier imagen a WebP con ayuda de un editor para ver los cambios producidos al momento." secondDescription="Mantente al día de las mejores películas y series y busca información sobre ellas." />
 
       <Form firstHeading="Contacto" email="Correo electrónico" subject="Asunto" message="Mensaje" send="Enviar" emailPlaceholder="Tu dirección de correo electrónico" subjectPlaceholder="Asunto del mensaje" messagePlaceholder="Escribe tu mensaje aquí..." />
 

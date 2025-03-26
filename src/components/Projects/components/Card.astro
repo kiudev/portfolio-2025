@@ -1,26 +1,36 @@
 ---
-import { projectsIcons } from "../icons/icons";
+import { linkIcon } from "@/assets/icons/icons";
 
 interface CardProps {
   title: string;
   image: string;
   tags: string[];
   link: string;
+  description: string;
 }
 
-const { title, image, tags, link } = Astro.props as CardProps;
+const { title, image, tags, link, description } = Astro.props as CardProps;
 ---
 
-<a href={link} class="card__link" target="_blank">
-  <li class="projects__card card">
+<li class="projects__card card">
+  <a class="card__link" href={link} target="_blank">
     <div class="card__header">
-      <h3 class="card__title">{title}</h3>
-      <span set:html={projectsIcons.linkIcon}></span>
+      <img class="card__image" src={image} alt="" />
     </div>
 
-    <ul class="card__tags">
-      {tags && tags.map((tag) => <li class="card__tag">{tag}</li>)}
-    </ul>
-  </li>
-  <img class="card__image" src={image} alt="" />
-</a>
+    <footer class="card__footer">
+      <header class="card__footer-header">
+        <h3 class="card__footer-title">{title}</h3>
+        <span set:html={linkIcon} />
+      </header>
+
+      <section class="card__footer-description">
+        {description}
+      </section>
+
+      <!-- <ul class="card__footer-tags">
+        {tags && tags.map((tag) => <li class="card__footer-tag">{tag}</li>)}
+      </ul> -->
+    </footer>
+  </a>
+</li>
