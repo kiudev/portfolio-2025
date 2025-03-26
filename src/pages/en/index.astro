@@ -1,12 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Nav from "@/components/nav/Nav.astro";
-import Header from "@/components/header/Header.astro";
-import About from "@/components/about/About.astro";
-import Projects from "@/components/projects/Projects.astro";
-import Form from "@/components/form/Form.astro";
-import Footer from "@/components/footer/Footer.astro";
-import "@/styles/global.css"
+import Nav from "@/components/Nav/Nav.astro";
+import Header from "@/components/Header/Header.astro";
+import About from "@/components/About/About.astro";
+import Projects from "@/components/Projects/Projects.astro";
+import Form from "@/components/Form/Form.astro";
+import Footer from "@/components/Footer/Footer.astro";
+import "@/styles/global.css";
 ---
 
 <Layout title="Home">
@@ -30,9 +30,22 @@ import "@/styles/global.css"
         description="I was in charge of the design and development of web interfaces for various clients. At the same time, I was in charge of optimising the loading time based on Core Web Vitals metrics and also optimising the SEO On Page to increase visibility on Google."
       />
 
-      <Projects heading="Projects" firstDescription="Lorem" secondDescription="dasd" />
+      <Projects
+        heading="Projects"
+        firstDescription="Lorem"
+        secondDescription="dasd"
+      />
 
-      <Form firstHeading="Contact" email="Email" subject="Subject" message="Message" send="Send" emailPlaceholder="Your email address" subjectPlaceholder="Message subject" messagePlaceholder="Type your message here..." />
+      <Form
+        firstHeading="Contact"
+        email="Email"
+        subject="Subject"
+        message="Message"
+        send="Send"
+        emailPlaceholder="Your email address"
+        subjectPlaceholder="Message subject"
+        messagePlaceholder="Type your message here..."
+      />
 
       <Footer />
     </main>
