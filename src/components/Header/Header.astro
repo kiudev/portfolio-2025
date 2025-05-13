@@ -41,7 +41,7 @@ const { position, headline } = Astro.props;
       set:html={linkedinIcon}
     />
 
-    <a class="header__social-contact" href="#contact" set:html="Contacta" />
+    <!-- <a class="header__social-contact" href="#contact" set:html={contactButtonText} /> -->
   </div>
 
   <a href="#about" class="header__chevron" set:html={chevronsDownIcon} />
@@ -78,7 +78,7 @@ const { position, headline } = Astro.props;
     { ease: "circInOut", duration: 1 },
   );
 
-  hover(".header__social a", (el) => {
+  hover(".header__social-github, .header__social-linkedin", (el) => {
     animate(el, { scale: 1.2 }, { type: "tween", stiffness: 300 });
 
     return () => animate(el, { scale: 1 }, { type: "tween", stiffness: 300 });
