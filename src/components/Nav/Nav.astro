@@ -5,7 +5,7 @@ import "./nav.css";
 const { about, projects, contact } = Astro.props;
 ---
 
-<nav class="nav">
+<nav id="nav" class="nav">
   <a href="#about">{about}</a>
 
   <a href="#projects">{projects}</a>
@@ -19,8 +19,48 @@ const { about, projects, contact } = Astro.props;
 
 <script>
   import { animate, circInOut } from "motion";
+  import { closeNavIcon, showNavIcon } from "@/assets/icons/icons";
 
   const scrollableContainer = document.getElementById("scrollable-container");
+  const nav = document.getElementById("nav");
+  const navBtn = document.getElementById("nav-btn");
+
+  function showNav() {
+    nav?.classList.remove("hidden");
+    if (navBtn) navBtn.innerHTML = closeNavIcon;
+  }
+
+  function hideNav() {
+    nav?.classList.add("hidden");
+    if (navBtn) navBtn.innerHTML = showNavIcon;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    function handleResizeNav() {
+      if (matchMedia("(max-width: 768px)").matches) {
+        hideNav();
+        if (navBtn) navBtn.style.display = "block";
+      } else {
+        showNav();
+        if (navBtn) navBtn.style.display = "none";
+      }
+    }
+    handleResizeNav();
+
+    window.addEventListener("resize", handleResizeNav);
+  });
+
+  function handleClickNav() {
+    const isHidden = nav?.classList.contains("hidden");
+
+    if (!isHidden) {
+      hideNav();
+    } else {
+      showNav();
+    }
+  }
+
+  navBtn?.addEventListener("click", handleClickNav);
 
   animate(
     ".nav",
@@ -36,14 +76,40 @@ const { about, projects, contact } = Astro.props;
         animate(
           ".nav",
           {
-            backgroundColor: "var(--glass-color-100)",
+            backgroundColor: matchMedia("(max-width: 768px)").matches
+              ? "none"
+              : "var(--glass-color-100)",
+          },
+          { duration: 0.3 },
+        );
+
+        animate(
+          "#header-container",
+          {
+            backgroundColor: matchMedia("(max-width: 768px)").matches
+              ? "var(--glass-color-100)"
+              : "none",
           },
           { duration: 0.3 },
         );
       } else {
         animate(
           ".nav",
-          { backgroundColor: "var(--glass-color-900)" },
+          {
+            backgroundColor: matchMedia("(max-width: 768px)").matches
+              ? "none"
+              : "var(--glass-color-900)",
+          },
+          { duration: 0.3 },
+        );
+
+        animate(
+          "#header-container",
+          {
+            backgroundColor: matchMedia("(max-width: 768px)").matches
+              ? "var(--glass-color-900)"
+              : "none",
+          },
           { duration: 0.3 },
         );
       }

@@ -28,12 +28,12 @@ const { heading, firstDescription, secondDescription } = Astro.props;
 </section>
 
 <script>
-  import { scrollAnimations } from "../../utils/scrollAnimations";
-  import { hover, animate } from "motion";
+  // import { scrollAnimations } from "../../utils/scrollAnimations";
+  // import { hover, animate } from "motion";
 
-  hover(".card__link", (el) => {
-    animate(el, { scale: 0.97 }, { type: "tween", stiffness: 300 });
+  // hover(".card__link", (el) => {
+  //   animate(el, { outline: '1px solid var(--neutral-color-100)', borderRadius: '10px' }, {  });
 
-    return () => animate(el, { scale: 1 }, { type: "tween", stiffness: 300 });
-  })
+  //   return () => animate(el, { outline: 'none' }, {  });
+  // })
 </script>

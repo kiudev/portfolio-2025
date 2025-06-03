@@ -6,12 +6,14 @@ import About from "@/components/About/About.astro";
 import Projects from "@/components/Projects/Projects.astro";
 import Form from "@/components/Form/Form.astro";
 import Footer from "@/components/Footer/Footer.astro";
-import "@/styles/global.css"
+import { showNavIcon } from "@/assets/icons/icons";
+import "@/styles/global.css";
 ---
 
 <Layout title="Daniel Saavedra">
   <div id="window-container">
     <header id="header-container">
+      <button id="nav-btn" class="nav-btn" style="display: none;"></button>
       <Nav about="Sobre mí" projects="Proyectos" contact="Contacto" />
     </header>
 
@@ -30,9 +32,22 @@ import "@/styles/global.css"
         description="Realizaba el diseño y el desarrollo de interfaces web para diversos clientes. Al mismo tiempo, me encargaba de optimizar el tiempo de carga basandome en métricas de Core Web Vitals y también de optimizar el SEO On Page para aumentar la visibilidad en Google."
       />
 
-      <Projects heading="Proyectos" firstDescription="Optimiza cualquier imagen a WebP con ayuda de un editor para ver los cambios producidos al momento." secondDescription="Mantente al día de las mejores películas y series y busca información sobre ellas." />
+      <Projects
+        heading="Proyectos"
+        firstDescription="Optimiza cualquier imagen a WebP con ayuda de un editor para ver los cambios producidos al momento."
+        secondDescription="Mantente al día de las mejores películas y series y busca información sobre ellas."
+      />
 
-      <Form firstHeading="Contacto" email="Correo electrónico" subject="Asunto" message="Mensaje" send="Enviar" emailPlaceholder="Tu dirección de correo electrónico" subjectPlaceholder="Asunto del mensaje" messagePlaceholder="Escribe tu mensaje aquí..." />
+      <Form
+        firstHeading="Contacto"
+        email="Correo electrónico"
+        subject="Asunto"
+        message="Mensaje"
+        send="Enviar"
+        emailPlaceholder="Tu dirección de correo electrónico"
+        subjectPlaceholder="Asunto del mensaje"
+        messagePlaceholder="Escribe tu mensaje aquí..."
+      />
 
       <Footer />
     </main>
@@ -91,11 +106,11 @@ import "@/styles/global.css"
 
 <script>
   import { animate, scroll } from "motion";
-  import { scrollAnimations } from "../../utils/scrollAnimations";
+  import { scrollAnimations } from "@/utils/scrollAnimations";
 
   const scrollableContainer = document.getElementById("scrollable-container");
-
   const body = document.body;
+
 
   if (scrollableContainer) {
     scroll(animate(".cloud2", { y: [50, 0] }), {
