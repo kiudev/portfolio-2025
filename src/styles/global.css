@@ -243,11 +243,21 @@
     border-radius: 0;
     backdrop-filter: none;
   }
+
+  #lang-options {
+    position: absolute;
+    top: 205px;
+    right: 0;
+    min-width: 100%;
+    border-radius: 0;
+  }
 }
 
 @media (min-width: 480px) and (max-width: 768px) {
   #window-container {
     width: 100%;
+    left: 0;
+    right: 0;
     border: none;
   }
 
@@ -305,10 +315,6 @@
   #window-container {
     width: 100%;
     border: none;
-  }
-
-  #header-container {
-    background-color: none;
   }
 
   #main-container {

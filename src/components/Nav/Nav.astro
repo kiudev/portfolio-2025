@@ -15,14 +15,14 @@ const t = useTranslations(lang);
   <a href="#contact">{t("contact.title")}</a>
 
   <div class="lang-container">
-    <button id="langSelect">
+    <button id="lang-select">
       <span class={`fi fi-${languages[lang].flagCode}`}></span>
       {languages[lang].name}
 
       <span class="caret"></span>
     </button>
 
-    <ul id="langOptions" hidden>
+    <ul id="lang-options" hidden>
       {
         Object.entries(languages)
           .filter(([langKey]) => langKey !== lang)
@@ -46,9 +46,10 @@ const t = useTranslations(lang);
   const scrollableContainer = document.getElementById("scrollable-container");
   const nav = document.getElementById("nav");
   const navBtn = document.getElementById("nav-btn");
-  const langSelect = document.getElementById("langSelect");
-  const langOptions = document.getElementById("langOptions");
-  const caret = document.querySelector(".caret")
+  const langSelect = document.getElementById("lang-select");
+  const langOptions = document.getElementById("lang-options");
+  const caret = document.querySelector(".caret");
+  const headerContainer = document.getElementById("header-container");
 
   function showNav() {
     nav?.classList.remove("hidden");
@@ -62,12 +63,36 @@ const t = useTranslations(lang);
 
   document.addEventListener("DOMContentLoaded", () => {
     function handleResizeNav() {
-      if (matchMedia("(max-width: 768px)").matches) {
-        hideNav();
-        if (navBtn) navBtn.style.display = "block";
-      } else {
-        showNav();
-        if (navBtn) navBtn.style.display = "none";
+      if (scrollableContainer) {
+        const scrollPosition = scrollableContainer.scrollTop;
+
+        if (matchMedia("(max-width: 768px)").matches) {
+          hideNav();
+          if (navBtn) navBtn.style.display = "block";
+
+          if (scrollPosition > 400) {
+            if (headerContainer)
+              headerContainer.style.backgroundColor = "var(--glass-color-100)";
+            if (nav) nav.style.backgroundColor = "transparent";
+          } else {
+            if (headerContainer)
+              headerContainer.style.backgroundColor = "var(--glass-color-900)";
+            if (nav) nav.style.backgroundColor = "transparent";
+          }
+        } else {
+          showNav();
+          if (navBtn) navBtn.style.display = "none";
+
+          if (scrollPosition > 400) {
+            if (headerContainer)
+              headerContainer.style.backgroundColor = "transparent";
+            if (nav) nav.style.backgroundColor = "var(--glass-color-100)";
+          } else {
+            if (headerContainer)
+              headerContainer.style.backgroundColor = "transparent";
+            if (nav) nav.style.backgroundColor = "var(--glass-color-900)";
+          }
+        }
       }
     }
 
@@ -75,7 +100,7 @@ const t = useTranslations(lang);
 
     window.addEventListener("resize", handleResizeNav);
 
-    if (caret) caret.innerHTML = caretDownIcon
+    if (caret) caret.innerHTML = caretDownIcon;
   });
 
   function handleClickNav() {
@@ -91,7 +116,7 @@ const t = useTranslations(lang);
   navBtn?.addEventListener("click", handleClickNav);
 
   langSelect?.addEventListener("click", () => {
-    const isHidden = langOptions?.hasAttribute("hidden")
+    const isHidden = langOptions?.hasAttribute("hidden");
 
     if (!isHidden) {
       if (caret) caret.innerHTML = caretDownIcon;
@@ -117,7 +142,7 @@ const t = useTranslations(lang);
           ".nav",
           {
             backgroundColor: matchMedia("(max-width: 768px)").matches
-              ? "none"
+              ? "transparent"
               : "var(--glass-color-100)",
           },
           { duration: 0.3 },
@@ -128,7 +153,15 @@ const t = useTranslations(lang);
           {
             backgroundColor: matchMedia("(max-width: 768px)").matches
               ? "var(--glass-color-100)"
-              : "none",
+              : "transparent",
+          },
+          { duration: 0.3 },
+        );
+
+        animate(
+          "#lang-options",
+          {
+            backgroundColor: "var(--glass-color-100)",
           },
           { duration: 0.3 },
         );
@@ -137,7 +170,7 @@ const t = useTranslations(lang);
           ".nav",
           {
             backgroundColor: matchMedia("(max-width: 768px)").matches
-              ? "none"
+              ? "transparent"
               : "var(--glass-color-900)",
           },
           { duration: 0.3 },
@@ -148,7 +181,15 @@ const t = useTranslations(lang);
           {
             backgroundColor: matchMedia("(max-width: 768px)").matches
               ? "var(--glass-color-900)"
-              : "none",
+              : "transparent",
+          },
+          { duration: 0.3 },
+        );
+
+        animate(
+          "#lang-options",
+          {
+            backgroundColor: "var(--glass-color-900)",
           },
           { duration: 0.3 },
         );
