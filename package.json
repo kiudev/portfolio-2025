@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.8.1",
+    "flag-icons": "^7.5.0",
     "motion": "^12.4.7"
   },
   "devDependencies": {

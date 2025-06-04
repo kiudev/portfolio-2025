@@ -1,30 +1,19 @@
 ---
 import "./about.css";
-import Timeline from "./components/Timeline.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const {
-  heading,
-  firstParagraph,
-  secondParagraph,
-  thirdParagraph,
-  description
-} = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 ---
 
 <div id="about">
-  <h2 class="about__first-heading">{heading}</h2>
+  <h2 class="about__first-heading">{t("about.title")}</h2>
 
   <section class="about__container">
     <div class="about__text">
-      <p>
-        {firstParagraph}
-      </p>
-      <p>
-        {secondParagraph}
-      </p>
-      <p>
-        {thirdParagraph}
-      </p>
+      <p>{t("about.description")[0]}</p>
+      <p>{t("about.description")[1]}</p>
     </div>
   </section>
 

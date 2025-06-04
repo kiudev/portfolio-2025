@@ -1,29 +1,54 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { languages } from "@/i18n/ui";
 import "./nav.css";
 
-const { about, projects, contact } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <nav id="nav" class="nav">
-  <a href="#about">{about}</a>
+  <a href="#about">{t("about.title")}</a>
 
-  <a href="#projects">{projects}</a>
+  <a href="#projects">{t("projects.title")}</a>
 
-  <a href="#contact">{contact}</a>
+  <a href="#contact">{t("contact.title")}</a>
 
-  <a class="lang" href={getRelativeLocaleUrl("es")}>es</a>
+  <div class="lang-container">
+    <button id="langSelect">
+      <span class={`fi fi-${languages[lang].flagCode}`}></span>
+      {languages[lang].name}
 
-  <a class="lang" href={getRelativeLocaleUrl("en")}>en</a>
+      <span class="caret"></span>
+    </button>
+
+    <ul id="langOptions" hidden>
+      {
+        Object.entries(languages)
+          .filter(([langKey]) => langKey !== lang)
+          .map(([langKey, { name, flagCode }]) => (
+            <li>
+              <a href={`/${langKey}/`} class={langKey === lang ? "active" : ""}>
+                <span class={`fi fi-${flagCode}`} /> {name}
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+  </div>
 </nav>
 
 <script>
   import { animate, circInOut } from "motion";
   import { closeNavIcon, showNavIcon } from "@/assets/icons/icons";
+  import { caretDownIcon, caretUpIcon } from "@/assets/icons/icons";
 
   const scrollableContainer = document.getElementById("scrollable-container");
   const nav = document.getElementById("nav");
   const navBtn = document.getElementById("nav-btn");
+  const langSelect = document.getElementById("langSelect");
+  const langOptions = document.getElementById("langOptions");
+  const caret = document.querySelector(".caret")
 
   function showNav() {
     nav?.classList.remove("hidden");
@@ -45,9 +70,12 @@ const { about, projects, contact } = Astro.props;
         if (navBtn) navBtn.style.display = "none";
       }
     }
+
     handleResizeNav();
 
     window.addEventListener("resize", handleResizeNav);
+
+    if (caret) caret.innerHTML = caretDownIcon
   });
 
   function handleClickNav() {
@@ -61,6 +89,18 @@ const { about, projects, contact } = Astro.props;
   }
 
   navBtn?.addEventListener("click", handleClickNav);
+
+  langSelect?.addEventListener("click", () => {
+    const isHidden = langOptions?.hasAttribute("hidden")
+
+    if (!isHidden) {
+      if (caret) caret.innerHTML = caretDownIcon;
+    } else {
+      if (caret) caret.innerHTML = caretUpIcon;
+    }
+
+    langOptions?.toggleAttribute("hidden");
+  });
 
   animate(
     ".nav",

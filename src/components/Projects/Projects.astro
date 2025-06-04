@@ -1,12 +1,14 @@
 ---
 import "./projects.css";
 import Card from "./components/Card.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const { heading, firstDescription, secondDescription } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="projects">
-  <h2 class="projects__heading">{heading}</h2>
+  <h2 class="projects__heading">{t("projects.title")}</h2>
 
   <ul class="projects__group">
     <Card
@@ -14,7 +16,7 @@ const { heading, firstDescription, secondDescription } = Astro.props;
       image="/screely-1738234351139.png"
       tags={["React", "TypeScript", "Tailwind CSS", "Vite", "i18n", "FilePond"]}
       link="https://webpix-chi.vercel.app"
-      description={firstDescription}
+      description={t("projects.description")[0]}
     />
 
     <Card
@@ -22,7 +24,7 @@ const { heading, firstDescription, secondDescription } = Astro.props;
       image="/images/cinopolis.png"
       tags={["Next.js", "TypeScript", "TailwindCSS", "ShadCN", "TMDB API"]}
       link="https://cinopolis.vercel.app"
-      description={secondDescription}
+      description={t("projects.description")[1]}
     />
   </ul>
 </section>

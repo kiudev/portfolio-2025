@@ -1,12 +1,14 @@
 ---
-import "./header.css";
+import "./hero.css";
 import {
   githubIcon,
   linkedinIcon,
   chevronsDownIcon,
 } from "@/assets/icons/icons";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const { position, headline } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header id="header">
@@ -14,7 +16,7 @@ const { position, headline } = Astro.props;
     <div class="header__text">
       <h1 class="header__title"></h1>
 
-      <h2 class="header__position">{position}</h2>
+      <h2 class="header__position">{t("hero.position")}</h2>
     </div>
 
     <div class="header__logo-container">
@@ -23,7 +25,7 @@ const { position, headline } = Astro.props;
   </div>
 
   <p class="header__headline">
-    {headline}
+    {t("hero.headline")}
   </p>
 
   <div class="header__social">

@@ -1,51 +1,38 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Nav from "@/components/Nav/Nav.astro";
-import Header from "@/components/Header/Header.astro";
+import Hero from "@/components/Hero/Hero.astro";
 import About from "@/components/About/About.astro";
 import Projects from "@/components/Projects/Projects.astro";
 import Form from "@/components/Form/Form.astro";
 import Footer from "@/components/Footer/Footer.astro";
 import "@/styles/global.css";
+import "flag-icons/css/flag-icons.min.css";
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "es" } },
+    { params: { lang: "ca" } },
+  ];
+}
 ---
 
 <Layout title="Daniel Saavedra">
   <div id="window-container">
     <header id="header-container">
-      <Nav about="Sobre mí" projects="Proyectos" contact="Contacto" />
+      <button id="nav-btn" class="nav-btn" style="display: none;"></button>
+      <Nav />
     </header>
 
     <main id="main-container">
-      <Header
-        position="Frontend Developer"
-        headline="I enjoy creating interfaces with a focus on visual creativity and optimal user experience."
-      />
+      <Hero />
 
-      <About
-        heading="About me"
-        secondHeading="Especializado en el desarrollo frontend"
-        firstParagraph="Hola, I am Daniel 👋"
-        secondParagraph="I am a frontend developer specialising in creating web interfaces. I love working with modern technologies and creating unique and engaging visual experiences for users."
-        thirdParagraph="I specialize in web application development using technologies like React, Next.js, Tailwind CSS and other modern tools. I am always looking to learn something new and improve my skills."
-        description="I was in charge of the design and development of web interfaces for various clients. At the same time, I was in charge of optimising the loading time based on Core Web Vitals metrics and also optimising the SEO On Page to increase visibility on Google."
-      />
+      <About />
 
-      <Projects
-        heading="Projects"
-        firstDescription="Optimize any image to WebP with the help of an editor to see the changes instantly."
-        secondDescription="Stay tuned with the best movies and series and search information about them."
-      />
+      <Projects />
 
-      <Form
-        firstHeading="Contact"
-        email="Email"
-        subject="Subject"
-        message="Message"
-        send="Send"
-        emailPlaceholder="Your email address"
-        subjectPlaceholder="Message subject"
-        messagePlaceholder="Type your message here..."
-      />
+      <Form />
 
       <Footer />
     </main>
@@ -104,10 +91,9 @@ import "@/styles/global.css";
 
 <script>
   import { animate, scroll } from "motion";
-  import { scrollAnimations } from "../../utils/scrollAnimations";
+  import { scrollAnimations } from "@/utils/scrollAnimations";
 
   const scrollableContainer = document.getElementById("scrollable-container");
-
   const body = document.body;
 
   if (scrollableContainer) {

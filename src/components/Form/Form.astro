@@ -1,12 +1,13 @@
 ---
 import "./form.css";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const { firstHeading, email, subject, message, send, emailPlaceholder, subjectPlaceholder, messagePlaceholder } =
-  Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="contact">
-  <h2 class="contact__first-heading">{firstHeading}</h2>
+  <h2 class="contact__first-heading">{t("contact.title")}</h2>
 
   <section class="contact__form-container">
     <form class="contact__form form" method="post">
@@ -16,22 +17,22 @@ const { firstHeading, email, subject, message, send, emailPlaceholder, subjectPl
         value="0085b51f-0c31-442d-8a6e-a4010ed92634"
       />
 
-      <label for="email">{email}</label>
-      <input class="form__email" name="email" type="text" placeholder={emailPlaceholder} required />
+      <label for="email">{t("contact.email")}</label>
+      <input class="form__email" name="email" type="text" placeholder={String(t("contact.emailPlaceholder"))} required />
 
-      <label for="subject">{subject}</label>
-      <input class="form__subject" type="text" name="subject" placeholder={subjectPlaceholder} required />
+      <label for="subject">{t("contact.subject")}</label>
+      <input class="form__subject" type="text" name="subject" placeholder={String(t("contact.subjectPlaceholder"))} required />
 
-      <label for="message">{message}</label>
+      <label for="message">{t("contact.message")}</label>
       <textarea
         class="form__message"
         name="message"
         cols="30"
         rows="10"
-        placeholder={messagePlaceholder}
+        placeholder={String(t("contact.messagePlaceholder"))}
         required></textarea>
 
-      <input class="form__submit" type="submit" value={send} />
+      <input class="form__submit" type="submit" value={t("contact.send")} />
     </form>
   </section>
 </section>

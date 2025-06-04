@@ -16,7 +16,6 @@ nav {
   border-radius: 50px;
   padding: 1em 2em;
   background-color: var(--glass-color-900);
-  
 }
 
 nav a {
@@ -24,19 +23,6 @@ nav a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-}
-
-.lang-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  height: 100px;
-  margin: auto;
-  border-bottom: 2px solid rgb(255, 255, 238, 0.3);
 }
 
 .lang {
@@ -48,4 +34,33 @@ nav a {
 
 .hidden {
   display: none;
+}
+
+.lang-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#langSelect {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  border: none;
+  color: var(--neutral-color-100);
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#langOptions {
+  list-style-type: none;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+  width: 120px;
+  background-color: var(--glass-color-900);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
