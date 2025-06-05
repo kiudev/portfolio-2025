@@ -50,7 +50,8 @@ export const ui = {
     "hero.cta": "Ver mi trabajo",
     "about.description": [
       "¡Hola! Soy Daniel 👋",
-      "Soy un desarrollador frontend especializado en crear interfaces visualmente atractivas y fáciles de usar. Tengo experiencia en diversas tecnologías y frameworks frontend, y siempre estoy dispuesto a aprender y mejorar mis habilidades.",
+      "Soy un desarrollador frontend especializado en crear interfaces visualmente atractivas y fáciles de usar.",
+      "Tengo experiencia en diversas tecnologías y frameworks frontend, y siempre estoy dispuesto a aprender y mejorar mis habilidades."
     ],
     "projects.description": [
       "Optimiza cualquier imagen a WebP con ayuda de un editor para ver los cambios producidos al momento.",

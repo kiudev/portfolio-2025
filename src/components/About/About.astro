@@ -1,6 +1,8 @@
 ---
 import "./about.css";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { htmlIcon, cssIcon, jsIcon, tsIcon } from "@/assets/icons/icons";
+import { iconBubbleArray } from "./components/iconBubble.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,6 +16,13 @@ const t = useTranslations(lang);
     <div class="about__text">
       <p>{t("about.description")[0]}</p>
       <p>{t("about.description")[1]}</p>
+      <p>{t("about.description")[2]}</p>
+    </div>
+
+    <div class="about__icons">
+      {Object.entries(iconBubbleArray).map(([_, { icon, class: className }]) => (
+        <div class={className} set:html={icon}></div>
+      ))}
     </div>
   </section>
 

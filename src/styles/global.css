@@ -18,6 +18,8 @@
 
   --glass-color-100: rgba(250, 249, 246, 0.2);
   --glass-color-900: rgba(16, 16, 14, 0.2);
+  --animate-bounce: bounce 8s infinite;
+  --animate-bounce-reversed: bounceReversed 8s infinite;
 }
 
 .clouds {
@@ -96,6 +98,28 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color del thumb al pasar el mouse */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes bounceReversed {
+  0%, 100% {
+    transform: translateY(10%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
 }
 
 /* Mobile */
