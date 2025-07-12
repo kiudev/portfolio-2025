@@ -13,7 +13,7 @@ const t = useTranslations(lang);
   <ul class="projects__group">
     <Card
       title="WebPix"
-      image="/screely-1738234351139.png"
+      image="/images/webpix.png"
       tags={["React", "TypeScript", "Tailwind CSS", "Vite", "i18n", "FilePond"]}
       link="https://webpix-chi.vercel.app"
       description={t("projects.description")[0]}
@@ -26,16 +26,13 @@ const t = useTranslations(lang);
       link="https://cinopolis.vercel.app"
       description={t("projects.description")[1]}
     />
+
+    <Card
+      title="Markdown Editor"
+      image="/images/markdown-editor.png"
+      tags={["React", "TypeScript", "Tailwind CSS", "Vite", "React Markdown", "Lucide Icons"]}
+      link="https://mdown-editor.vercel.app"
+      description={t("projects.description")[2]}
+    />
   </ul>
 </section>
-
-<script>
-  // import { scrollAnimations } from "../../utils/scrollAnimations";
-  // import { hover, animate } from "motion";
-
-  // hover(".card__link", (el) => {
-  //   animate(el, { outline: '1px solid var(--neutral-color-100)', borderRadius: '10px' }, {  });
-
-  //   return () => animate(el, { outline: 'none' }, {  });
-  // })
-</script>

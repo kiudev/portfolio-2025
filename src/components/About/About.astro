@@ -1,12 +1,10 @@
 ---
 import "./about.css";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import { htmlIcon, cssIcon, jsIcon, tsIcon } from "@/assets/icons/icons";
 import { iconBubbleArray } from "./components/iconBubble.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 ---
 
 <div id="about">

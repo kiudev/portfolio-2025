@@ -31,6 +31,7 @@ export const ui = {
     "projects.description": [
       "Optimize any image to WebP with the help of an editor to see the changes instantly.",
       "Stay tuned with the best movies and series and search information about them.",
+      "Create a README with a Markdown editor to write and visualize content in real-time.",
     ],
     "contact.email": "Email",
     "contact.emailPlaceholder": "Your email address",
@@ -56,6 +57,7 @@ export const ui = {
     "projects.description": [
       "Optimiza cualquier imagen a WebP con ayuda de un editor para ver los cambios producidos al momento.",
       "Mantente al tanto de las mejores películas y series y busca información sobre ellas.",
+      "Crea un README con un editor de Markdown para escribir y visualizar el contenido en tiempo real.",
     ],
     "contact.email": "Correo electrónico",
     "contact.emailPlaceholder": "Tu dirección de correo electrónico",
@@ -80,6 +82,7 @@ export const ui = {
     "projects.description": [
       "Optimitza qualsevol imatge a WebP amb ajuda d'un editor per veure els canvis produïts al moment.",
       "Mantén-te al dia de les millors pel·lícules i sèries i busca informació sobre elles.",
+      "Crea un README amb editor de Markdown per escriure i visualitzar el contingut en temps real.",
     ],
     "contact.email": "Correu electrònic",
     "contact.emailPlaceholder": "La teva adreça de correu electrònic",
